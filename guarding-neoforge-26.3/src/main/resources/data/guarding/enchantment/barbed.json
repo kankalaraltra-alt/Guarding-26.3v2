@@ -9,23 +9,15 @@
         "affected": "attacker",
         "cancel_on_parry": true,
         "effect": {
-          "type": "minecraft:all_of",
-          "effects": [
-            {
-              "type": "minecraft:damage_entity",
-              "damage_type": "minecraft:thorns",
-              "max_damage": 3.0,
-              "min_damage": 3.0
-            },
-            {
-              "type": "minecraft:damage_item",
-              "amount": 1.0
-            }
-          ]
+          "type": "minecraft:damage_entity",
+          "damage_type": "minecraft:thorns",
+          "max_damage": 3.0,
+          "min_damage": 3.0
         },
         "requirements": {
-          "chance": 0.33,
-          "condition": "minecraft:random_chance"
+          "type": "minecraft:random_chance",
+          "condition": "minecraft:random_chance",
+          "chance": 0.33
         }
       }
     ],
@@ -33,19 +25,10 @@
       {
         "affected": "attacker",
         "effect": {
-          "type": "minecraft:all_of",
-          "effects": [
-            {
-              "type": "minecraft:damage_entity",
-              "damage_type": "minecraft:thorns",
-              "max_damage": 3.0,
-              "min_damage": 3.0
-            },
-            {
-              "type": "minecraft:damage_item",
-              "amount": 1.0
-            }
-          ]
+          "type": "minecraft:damage_entity",
+          "damage_type": "minecraft:thorns",
+          "max_damage": 3.0,
+          "min_damage": 3.0
         }
       }
     ]
