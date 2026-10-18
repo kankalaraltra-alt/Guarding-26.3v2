@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:nether/netherite_armor",
+  "criteria": {
+    "netherite_shield": {
+      "conditions": {
+        "items": [
+          {
+            "items": "guarding:netherite_shield"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.guarding.nether.on_guard.desc"
+    },
+    "frame": "challenge",
+    "icon": {
+      "count": 1,
+      "id": "guarding:netherite_shield"
+    },
+    "title": {
+      "translate": "advancements.guarding.nether.on_guard"
+    }
+  },
+  "requirements": [
+    [
+      "netherite_shield"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

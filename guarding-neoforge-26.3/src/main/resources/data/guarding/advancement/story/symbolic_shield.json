@@ -1,0 +1,38 @@
+{
+  "parent": "minecraft:story/deflect_arrow",
+  "criteria": {
+    "decorate_shield": {
+      "conditions": {
+        "recipe_id": "minecraft:shield_decoration"
+      },
+      "trigger": "minecraft:recipe_crafted"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.guarding.story.symbolic_shield.desc"
+    },
+    "icon": {
+      "components": {
+        "minecraft:banner_patterns": [
+          {
+            "color": "yellow",
+            "pattern": "minecraft:stripe_center"
+          }
+        ],
+        "minecraft:base_color": "blue"
+      },
+      "count": 1,
+      "id": "minecraft:shield"
+    },
+    "title": {
+      "translate": "advancements.guarding.story.symbolic_shield"
+    }
+  },
+  "requirements": [
+    [
+      "decorate_shield"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

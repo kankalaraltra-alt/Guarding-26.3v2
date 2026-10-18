@@ -1,0 +1,21 @@
+{
+    "advancements.guarding.nether.on_guard": "Fazla Koruma Göz Çıkarmaz!",
+    "advancements.guarding.nether.on_guard.desc": "Bir kalkanı yükseltmek için Netherite Külçesi kullanın.",
+    "advancements.guarding.story.parry_this_you_casual": "Bunu Savuştur, Seni Sıradan!",
+    "advancements.guarding.story.parry_this_you_casual.desc": "Kendi Okunu savuşturarak bir düşmanı öldür",
+    "advancements.guarding.story.symbolic_shield": "Sembolik Kalkan",
+    "advancements.guarding.story.symbolic_shield.desc": "Bir Kalkanı Flamayla Süsleyin",
+
+    "enchantment.guarding.barbed": "Dikenli",
+    "enchantment.guarding.barbed.desc": "Kalkanı kullanırken size saldıran düşmanlara hasar verir.",
+    "enchantment.guarding.pummeling": "Yumruklanma",
+    "enchantment.guarding.pummeling.desc": "Bir savuşturmanın geri tepme gücünü artırır.",
+
+    "item.guarding.netherite_shield": "Netherite Kalkan",
+
+    "subtitle.guarding.item.shield.parry": "Kalkan savuşturmdu",
+    "subtitle.guarding.item.netherite_shield.block": "Kalkan blokladı",
+    "subtitle.guarding.item.netherite_shield.break": "Kalkan kırıldı",
+    "subtitle.guarding.item.netherite_shield.parry": "Kalkan Savurdu",
+    "subtitle.guarding.item.netherite_shield.equip": "Zırh kuşanıldı"
+}

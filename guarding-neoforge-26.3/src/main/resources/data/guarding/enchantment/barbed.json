@@ -1,0 +1,68 @@
+{
+  "anvil_cost": 8,
+  "description": {
+    "translate": "enchantment.guarding.barbed"
+  },
+  "effects": {
+    "guarding:shield_blocked": [
+      {
+        "affected": "attacker",
+        "cancel_on_parry": true,
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "minecraft:damage_entity",
+              "damage_type": "minecraft:thorns",
+              "max_damage": 3.0,
+              "min_damage": 3.0
+            },
+            {
+              "type": "minecraft:damage_item",
+              "amount": 1.0
+            }
+          ]
+        },
+        "requirements": {
+          "chance": 0.33,
+          "condition": "minecraft:random_chance"
+        }
+      }
+    ],
+    "guarding:shield_parried": [
+      {
+        "affected": "attacker",
+        "effect": {
+          "type": "minecraft:all_of",
+          "effects": [
+            {
+              "type": "minecraft:damage_entity",
+              "damage_type": "minecraft:thorns",
+              "max_damage": 3.0,
+              "min_damage": 3.0
+            },
+            {
+              "type": "minecraft:damage_item",
+              "amount": 1.0
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "max_cost": {
+    "base": 75,
+    "per_level_above_first": 25
+  },
+  "max_level": 1,
+  "min_cost": {
+    "base": 25,
+    "per_level_above_first": 25
+  },
+  "slots": [
+    "mainhand",
+    "offhand"
+  ],
+  "supported_items": "#guarding:enchantable/shield",
+  "weight": 2
+}

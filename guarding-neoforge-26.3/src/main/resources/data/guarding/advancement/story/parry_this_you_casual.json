@@ -1,0 +1,28 @@
+{
+  "parent": "guarding:story/symbolic_shield",
+  "criteria": {
+    "killed_by_parried_arrow": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "description": {
+      "translate": "advancements.guarding.story.parry_this_you_casual.desc"
+    },
+    "frame": "challenge",
+    "hidden": true,
+    "icon": {
+      "count": 1,
+      "id": "minecraft:shield"
+    },
+    "title": {
+      "translate": "advancements.guarding.story.parry_this_you_casual"
+    }
+  },
+  "requirements": [
+    [
+      "killed_by_parried_arrow"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

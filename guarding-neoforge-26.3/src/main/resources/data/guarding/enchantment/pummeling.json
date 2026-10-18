@@ -1,0 +1,31 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.guarding.pummeling"
+  },
+  "effects": {
+    "guarding:shield_knockback": {
+      "type": "minecraft:add",
+      "value": {
+        "type": "minecraft:linear",
+        "base": 0.15,
+        "per_level_above_first": 0.15
+      }
+    }
+  },
+  "max_cost": {
+    "base": 55,
+    "per_level_above_first": 8
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 5,
+    "per_level_above_first": 8
+  },
+  "slots": [
+    "mainhand",
+    "offhand"
+  ],
+  "supported_items": "#guarding:enchantable/shield",
+  "weight": 5
+}

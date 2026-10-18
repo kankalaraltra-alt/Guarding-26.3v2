@@ -1,0 +1,21 @@
+{
+    "advancements.guarding.nether.on_guard": "На сторожі!",
+    "advancements.guarding.nether.on_guard.desc": "Використайте незеритовий злиток, щоб покращити щит.",
+    "advancements.guarding.story.parry_this_you_casual": "Спробуй парирувати це, новачку!",
+    "advancements.guarding.story.parry_this_you_casual.desc": "Здолайте ворога парирувавши їх власну стрілу.",
+    "advancements.guarding.story.symbolic_shield": "Символічний щит",
+    "advancements.guarding.story.symbolic_shield.desc": "Прикрасьте щит, за допомогою стяга",
+
+    "enchantment.guarding.barbed": "Колючки",
+    "enchantment.guarding.barbed.desc": "Коли ви блокуєте, завдає шкоди ворогу, що атакує вас.",
+    "enchantment.guarding.pummeling": "Відбиття",
+    "enchantment.guarding.pummeling.desc": "Збільшує силу відкидання від парирування.",
+
+    "item.guarding.netherite_shield": "Незеритовий щит",
+
+    "subtitle.guarding.item.shield.parry": "Щит парирує",
+    "subtitle.guarding.item.netherite_shield.block": "Щит блокує",
+    "subtitle.guarding.item.netherite_shield.break": "Предмет ламається",
+    "subtitle.guarding.item.netherite_shield.parry": "Щит парирує",
+    "subtitle.guarding.item.netherite_shield.equip": "Споряджання обладунками"
+}

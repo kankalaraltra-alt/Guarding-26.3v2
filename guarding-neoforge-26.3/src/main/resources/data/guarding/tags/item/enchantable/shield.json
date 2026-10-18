@@ -1,0 +1,10 @@
+{
+  "values": [
+    "minecraft:shield",
+    "guarding:netherite_shield",
+    {
+      "id": "#c:tools/shield",
+      "required": false
+    }
+  ]
+}

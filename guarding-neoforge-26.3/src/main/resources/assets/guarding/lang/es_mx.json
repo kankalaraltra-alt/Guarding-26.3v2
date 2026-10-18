@@ -1,0 +1,22 @@
+{
+    "advancements.guarding.nether.on_guard": "¡En guardia!",
+    "advancements.guarding.nether.on_guard.desc": "Usa un lingote de netherita para mejorar un escudo",
+    "advancements.guarding.story.parry_this_you_casual": "¡Bloquea esto! Novato",
+    "advancements.guarding.story.parry_this_you_casual.desc": "Mata a un enemigo desviando su propia flecha",
+    "advancements.guarding.story.symbolic_shield": "Escudo simbólico",
+    "advancements.guarding.story.symbolic_shield.desc": "Decora un escudo con un estandarte",
+    "enchantment.guarding.barbed": "Púas",
+    "enchantment.guarding.barbed.desc": "Causa daño a los enemigos cuando te atacan mientras estás bloqueando.",
+    "enchantment.guarding.pummeling": "Apalear",
+    "enchantment.guarding.pummeling.desc": "Aumenta la fuerza de empuje de un bloqueo perfecto.",
+    "item.guarding.netherite_shield": "Escudo de netherita",
+
+    "stat.guarding.attacks_blocked_by_shield": "Ataques bloqueados con escudo",
+    "stat.guarding.attacks_parried_by_shield": "Ataques bloqueados perfectamente con escudo",
+
+    "subtitle.guarding.item.netherite_shield.block": "Bloqueo con escudo",
+    "subtitle.guarding.item.netherite_shield.break": "Ítem destruido",
+    "subtitle.guarding.item.netherite_shield.equip": "Armadura equipada",
+    "subtitle.guarding.item.netherite_shield.parry": "Bloqueo perfecto con escudo",
+    "subtitle.guarding.item.shield.parry": "Bloqueo perfecto con escudo"
+}

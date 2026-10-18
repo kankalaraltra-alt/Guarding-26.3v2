@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.teamabode.guarding.core.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "SmithingMenuMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
