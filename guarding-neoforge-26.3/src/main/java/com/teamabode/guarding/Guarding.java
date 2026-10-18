@@ -22,7 +22,7 @@ public class Guarding {
 
     public Guarding(IEventBus modBus, ModContainer container) {
         // Configs must be registered before anything reads them.
-        container.registerConfig(ModConfig.Type.COMMON, GuardingConfig.COMMON_SPEC);
+        container.registerConfig(ModConfig.Type.STARTUP, GuardingConfig.COMMON_SPEC, "guarding-common.toml");
         container.registerConfig(ModConfig.Type.STARTUP, GuardingConfig.STARTUP_SPEC, "guarding-startup.toml");
 
         GuardingItems.ITEMS.register(modBus);
