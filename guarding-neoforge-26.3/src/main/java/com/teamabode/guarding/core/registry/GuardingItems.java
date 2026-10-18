@@ -1,10 +1,12 @@
 package com.teamabode.guarding.core.registry;
 
+import com.google.gson.JsonParser;
+import com.mojang.serialization.JsonOps;
 import com.teamabode.guarding.Guarding;
 import com.teamabode.guarding.GuardingConfig;
-import net.minecraft.core.Holder;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.core.component.DataComponents;
-import net.minecraft.sounds.SoundEvent;
+import net.minecraft.resources.RegistryOps;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -25,53 +27,53 @@ public class GuardingItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(Guarding.MOD_ID);
 
     /**
-     * Since 1.21.5 shields are plain items driven by data components (BLOCKS_ATTACKS, EQUIPPABLE, ...),
-     * so NetheriteShieldItem and the ShieldItem mixins are gone. BLOCKS_ATTACKS is copied from the vanilla
-     * shield (without the use delay) and given the netherite block sound.
+     * Since 1.21.5 shields are plain items driven by data components. The BLOCKS_ATTACKS component
+     * is added in {@link #onModifyDefaultComponents}, because vanilla components are not bound yet
+     * while items are being registered.
      */
     public static final DeferredItem<Item> NETHERITE_SHIELD = ITEMS.registerItem("netherite_shield", Item::new,
-            properties -> {
-                properties = properties
-                        .durability(614)
-                        .fireResistant()
-                        .repairable(Items.NETHERITE_INGOT)
-                        .enchantable(GuardingConfig.netheriteShieldEnchantability())
-                        .component(DataComponents.BREAK_SOUND, GuardingSounds.ITEM_NETHERITE_SHIELD_BREAK)
-                        .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.OFFHAND)
-                                .setEquipSound(GuardingSounds.ITEM_NETHERITE_SHIELD_EQUIP)
-                                .setSwappable(false)
-                                .build());
+            properties -> properties
+                    .durability(614)
+                    .fireResistant()
+                    .repairable(Items.NETHERITE_INGOT)
+                    .enchantable(GuardingConfig.netheriteShieldEnchantability())
+                    .component(DataComponents.BREAK_SOUND, GuardingSounds.ITEM_NETHERITE_SHIELD_BREAK)
+                    .component(DataComponents.EQUIPPABLE, Equippable.builder(EquipmentSlot.OFFHAND)
+                            .setEquipSound(GuardingSounds.ITEM_NETHERITE_SHIELD_EQUIP)
+                            .setSwappable(false)
+                            .build()));
 
-                BlocksAttacks vanilla = Items.SHIELD.components().get(DataComponents.BLOCKS_ATTACKS);
-                if (vanilla != null) {
-                    properties = properties.component(DataComponents.BLOCKS_ATTACKS,
-                            withoutDelay(vanilla, Optional.of(GuardingSounds.ITEM_NETHERITE_SHIELD_BLOCK)));
+    /** Vanilla shield values, but with no use delay (replaces ShieldDelayMixin). */
+    private static Optional<BlocksAttacks> blocksAttacks(HolderLookup.Provider registries, String blockSound) {
+        String json = """
+                {
+                  "block_delay_seconds": 0.0,
+                  "disable_cooldown_scale": 1.0,
+                  "damage_reductions": [
+                    { "horizontal_blocking_angle": 90.0, "base": 0.0, "factor": 1.0 }
+                  ],
+                  "item_damage": { "threshold": 3.0, "base": 1.0, "factor": 1.0 },
+                  "bypassed_by": "#minecraft:bypasses_shield",
+                  "block_sound": "%s",
+                  "disabled_sound": "minecraft:item.shield.break"
                 }
-                return properties;
-            });
+                """.formatted(blockSound);
 
-    /** Copy of a vanilla BlocksAttacks with the use delay removed. Replaces ShieldDelayMixin. */
-    private static BlocksAttacks withoutDelay(BlocksAttacks vanilla, Optional<Holder<SoundEvent>> blockSound) {
-        return new BlocksAttacks(
-                0.0f,
-                vanilla.disableCooldownScale(),
-                vanilla.damageReductions(),
-                vanilla.itemDamage(),
-                vanilla.bypassedBy(),
-                blockSound,
-                vanilla.disableSound()
-        );
+        return BlocksAttacks.CODEC
+                .parse(RegistryOps.create(JsonOps.INSTANCE, registries), JsonParser.parseString(json))
+                .resultOrPartial(error -> Guarding.LOGGER.error("Could not build blocks_attacks component: {}", error));
     }
 
-    /** Vanilla shield: enchantable and no use delay. Replaces ShieldItemMixin / ShieldDelayMixin. */
     public static void onModifyDefaultComponents(ModifyDefaultComponentsEvent event) {
-        BlocksAttacks vanilla = Items.SHIELD.components().get(DataComponents.BLOCKS_ATTACKS);
-
         event.modify(Items.SHIELD, (builder, registries, item) -> {
             builder.set(DataComponents.ENCHANTABLE, new Enchantable(GuardingConfig.shieldEnchantability()));
-            if (vanilla != null) {
-                builder.set(DataComponents.BLOCKS_ATTACKS, withoutDelay(vanilla, vanilla.blockSound()));
-            }
+            blocksAttacks(registries, "minecraft:item.shield.block")
+                    .ifPresent(component -> builder.set(DataComponents.BLOCKS_ATTACKS, component));
+        });
+
+        event.modify(NETHERITE_SHIELD.get(), (builder, registries, item) -> {
+            blocksAttacks(registries, "guarding:item.netherite_shield.block")
+                    .ifPresent(component -> builder.set(DataComponents.BLOCKS_ATTACKS, component));
         });
     }
 
