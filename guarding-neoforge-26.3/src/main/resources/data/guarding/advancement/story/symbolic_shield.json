@@ -3,7 +3,9 @@
   "criteria": {
     "decorate_shield": {
       "conditions": {
-        "recipe_id": "minecraft:shield_decoration"
+        "recipes": [
+          "minecraft:shield_decoration"
+        ]
       },
       "trigger": "minecraft:recipe_crafted"
     }
